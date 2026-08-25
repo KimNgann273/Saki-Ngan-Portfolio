@@ -1,0 +1,452 @@
+.page {
+    position: relative;
+    width: 2400px;
+    min-height: 1500px;
+    overflow: hidden;
+    background:url('Assets/_ (4).jpeg') repeat;
+}
+.sun-link { 
+    position: fixed;
+    top: 22px; 
+    left: 28px; 
+    z-index: 10;
+    width: 100px; 
+    height: 100px; 
+    display: block; 
+    cursor: pointer; 
+}
+.sun { 
+    position: absolute; 
+    inset: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    pointer-events: none; 
+}
+.glasses { 
+    position: absolute;
+    left: 50%; 
+    top: 50%; 
+    width: 55%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.12s cubic-bezier(.2,.8,.3,1);
+    pointer-events: none;
+}
+
+  /* dim backdrop */
+.scrim {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+    background: rgba(0,0,0,0.12);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.scrim.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+  /* sliding panel */
+.panel { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 8;
+    width: 300px; 
+    height: 100%; 
+    box-sizing: border-box; 
+    padding: 0 20px;
+    background: #fff; 
+    border-right: 1px solid #f0e9d8;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1); 
+}   /* ease-in-out */
+.panel.open { 
+    transform: translateX(0); 
+    box-shadow: 0 0 40px rgba(0,0,0,0.12); 
+    
+}
+
+.panel nav { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 4px; 
+    margin-top: 132px; 
+}
+.panel a { 
+    display: block; 
+    padding: 14px 16px; 
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, sans-serif; font-size: 20px;
+    font-weight: 500; color: #2b2b2b; text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease; 
+}
+.panel a:hover { 
+    background: #fdf4df; 
+    color: #7a5b00; 
+}
+
+
+/* WORK PAGE */
+.doodles{
+    position: absolute;
+    height: auto;
+    z-index: 3;
+}
+.doodle1{
+    width: clamp(80px, 10vw, 130px);
+    bottom: 2%;
+    right: 15%;
+}
+.doodle2{
+width: clamp(80px, 11vw, 140px);
+    bottom: 5%;
+    right: 34%;
+    transform: rotate(-4deg);
+}
+.doodle3{
+    width: clamp(80px, 9vw, 120px);
+    top: 10%;
+    left: 45%;
+    transform: rotate(45deg);
+}
+.doodle4{
+    width: clamp(70px, 16vw, 170px);
+    top: 20%;
+    right: 10%;
+    transform: rotate(-20deg);
+}
+.doodle5{
+    width: clamp(80px, 10vw, 120px);
+    top: 10%;
+    left: 3%;
+    transform: rotate(-30deg);
+}
+.doodle6{
+    width: clamp(70px, 11vw, 125px);
+    bottom: 10%;
+    left: 5%;
+    transform: rotate(-30deg);
+}
+.archive-board{
+    position: absolute;
+    left: 40%;            /* drop the left: 30% / top: 20% */
+    top: 32%;
+    width: clamp(320px, 90vw, 700px);
+    height: clamp(400px, 60vh, 700px);
+    background: #fff;
+    border-radius: clamp(25px, 3vw, 46px);
+    box-shadow: 0 18px 40px rgba(60,70,90,0.14);
+}
+.archive-title{
+    position: absolute;
+    width: clamp(5rem, 20vw, 24rem);
+    top: 4%;
+    left: 30%;
+}
+.tag{
+    position: absolute;
+    left: -3%;
+    top: -9%;
+    width: 30%;
+    z-index: 1;
+}
+.chibi-girl{
+    position: absolute;
+    left: 30%;
+    top: -35%;
+    width: 32%;
+    height: auto;
+    z-index: 2;
+    object-fit: contain;
+}
+.archive-body{
+    position: absolute; 
+    left: 10%; 
+    top: 21%; 
+    width: 80%; 
+    z-index: 3;
+    font-family: "Schoolbell", cursive;
+    font-size: clamp(15px, 1.5vw, 17px); 
+    line-height: 1.45; 
+    color: #1c1c1c; 
+    text-wrap: pretty;
+}
+.archive-divider{
+    position: absolute; 
+    left: 5%; 
+    bottom: 40%; 
+    width: 91%; 
+    height: 2px; 
+    background: #1c1c1c; 
+    z-index: 3;
+}
+.archive-footer{
+    position: absolute; 
+    left: 10%; 
+    bottom: 28%;
+    width: 80%; 
+    z-index: 3;
+    font-family: "Schoolbell", cursive; 
+    font-size: clamp(15px, 1.5vw, 17px); 
+    line-height: 1.5; 
+    color: #1c1c1c;
+}
+.archive-contact{
+    position: absolute;
+    padding-left: 10%;
+    bottom: 4%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+}
+.archive-contact p{
+    font-family: "Schoolbell", cursive;
+    font-size: clamp(15px, 1.5vw, 17px);
+}
+.archive-contact a{
+    font-family: "Schoolbell", cursive;
+    color: #7a259e;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.archive-contact a:hover{
+    color: #d4aff0;
+}
+
+
+/* PRODUCT */
+.product{
+    position:absolute;
+    cursor:pointer; 
+    transform:rotate(var(--rot)); 
+    transition:transform .2s ease;
+}
+.product:hover{
+    transform:rotate(var(--rot)) scale(1.08);
+}
+.product img{
+    width:100%; 
+    height:auto; 
+    display:block; 
+    filter:drop-shadow(0 12px 22px rgba(60,70,90,.18));
+}
+
+
+/* PRODUCT OVERLAY */
+.overlay{
+    position:fixed; 
+    inset:0; 
+    z-index:8; 
+    display:none;
+    flex-direction:column; 
+    align-items:center; 
+    justify-content:center;
+    background:rgba(20,18,16,.72); 
+    backdrop-filter:blur(2px);
+}
+.overlay.open{
+    display:flex;
+}
+.product-card{
+    display:flex; 
+    flex-direction:column; 
+    align-items:center; 
+    max-width: 720px; 
+    padding:0 24px; 
+    text-align:center;
+}
+#ovImg img{
+    width:340px; 
+    max-width:70vw; 
+    height:auto; 
+    /*border-radius:28px; 
+    box-shadow:0 24px 60px rgba(0,0,0,.45); */
+}
+.product-card h3{
+    margin:26px 0 10px; 
+    font-family: "Schoolbell", cursive;
+    font-weight: 800; 
+    font-size:30px; 
+    font-weight: bold; 
+    color:#fff; 
+    letter-spacing:.5px;
+}
+.product-card p{
+    margin:0; 
+    max-width: 720px; 
+    font-family: "Schoolbell", cursive; 
+    font-size:17px; 
+    line-height:1.5; 
+    color:#eae6df; 
+    text-wrap:pretty;
+}
+.product-card button{
+    margin-top:28px; 
+    padding:12px 30px; 
+    border:none; 
+    border-radius:999px;
+    background:#fff; color:#1c1c1c; 
+    font-family:'Trebuchet MS',Arial,sans-serif; 
+    font-size:15px; 
+    font-weight:700; 
+    cursor:pointer;
+}
+.ov-video { 
+    width:720px; 
+    max-width:80vw; 
+    aspect-ratio:16/9; 
+    border:none; 
+    /*border-radius:20px; 
+    box-shadow:0 24px 60px rgba(0,0,0,.45);*/
+}
+
+/* IPHONE */
+@media (max-width: 480px) {
+.page{ 
+    width:100%; min-height:130vh;
+    overflow-x: visible;
+}
+.panel {
+    width: 100%;
+}
+.panel nav{
+    text-align: center;
+    gap: 70px;
+    margin-top: 200px;
+}
+.panel a{
+    font-size: 30px;
+}
+
+  /* board fills the screen instead of a fixed 700px */
+    .archive-board{
+        position: relative; /*leave the absolute canvas coords*/
+        left: auto;
+        top: auto;
+        width: 90%;
+        height: auto;
+        min-height: 50vh;
+        margin: 230px auto 40px; /* room for chibi sticking out the top */
+    }
+
+    .product{
+        position:relative;
+        left:-10% !important; top:auto !important;
+        width:60% !important;
+        --rot:0deg;
+        margin:20px auto;
+        display:block;
+    }
+
+    .tag {
+        width: 28%;
+        left: 2%;
+        top: -6%;
+    }
+
+    .chibi-girl {
+        width: 40%;
+        left: 29%;
+        top: -25%;
+    }
+
+    .archive-body {
+        padding-top: 18%;
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 80%;
+        margin: 0px auto 0;
+    }
+    .archive-title{
+        width: 10rem;
+    }
+
+    .archive-divider {
+        position: absolute;
+        left: 6%;
+        bottom: 35%;
+        margin: 24px auto;
+        width: 88%;
+    }
+
+    .archive-footer {
+        position: absolute;
+        left: 10%;
+        bottom: 25%;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .archive-contact{
+        bottom: 15;
+        column-gap: normal;
+    }
+    .archive-contact{
+        grid-template-columns: 1fr;
+    }
+    .archive-contact p{
+        margin: 3px 0;
+    }
+    .doodles{
+        display: none;
+    }
+    .product img{
+    width:130%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1100px){
+    .page{ 
+        width:100%; min-height:130vh;
+        overflow-x: visible;
+    }
+    .archive-board{
+        position: absolute;
+        left: 90%;
+        top: 13%;
+        width: 80%;
+        height: auto;
+        min-height: 45vh;
+        margin: 230px auto 40px;
+    }
+    .archive-body{
+        font-size: clamp(15px, 2.1vw, 40px);
+    }
+    .archive-footer{
+        font-size: clamp(15px, 2.1vw, 40px);
+    }
+    .archive-contact p{
+        font-size: clamp(15px, 2.1vw, 40px);
+    }
+    .panel{
+        width: 500px;
+    }
+    .panel a{
+        font-size: 40px;
+        padding: 50px 10px;
+    }
+    .product-card{
+        max-width: 520px;
+    }
+    .product-card p {
+        max-width: 620px;
+    }
+    .doodle2{
+        right: -50%;
+    }
+    .doodle3{
+        left: 60%;
+    }
+    .doodle4{
+        right:-100%;
+    }
+    .doodle5{
+        right: -15%;
+    }
+    .archive-title{
+        width: 20rem;
+    }
+}
